@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import CallUsSection from "../CallUsSection/CallUsSection";
 import ChefRecommend from "../ChefRecommend/ChefRecommend";
+import MenuFeatured from "../MenuFeatured/MenuFeatured";
 import OrderOnlineSection from "../OrderOnlineSection/OrderOnlineSection";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import ShopFeatured from "../ShopFeatured/ShopFeatured";
@@ -16,7 +17,7 @@ const Home = () => {
         <CallUsSection></CallUsSection>
         <ChefRecommend></ChefRecommend>
       </div>
-      <h2>This is Home page</h2>
+      <MenuFeatured></MenuFeatured>
     </div>
   );
 };
