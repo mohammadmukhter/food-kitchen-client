@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const OrderOnlineSection = () => {
   return (
-    <section className="my-12">
+    <section className="my-20">
       <SectionTitle
         subHeading="From 11:00 am to 10:00 pm"
         heading="order online"
