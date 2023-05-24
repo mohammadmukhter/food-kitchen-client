@@ -18,7 +18,7 @@ const OrderOnlineSection = () => {
         subHeading="From 11:00 am to 10:00 pm"
         heading="order online"
       ></SectionTitle>
-      <div className="p-4">
+      <div className="py-4">
         <Swiper
           slidesPerView={4}
           spaceBetween={30}
