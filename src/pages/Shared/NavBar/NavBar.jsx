@@ -21,13 +21,13 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black bg-opacity-30 text-white rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black bg-opacity-80 text-white rounded-box w-52"
           >
             <li className="hover:bg-gray-600/50">
               <a>Item 1</a>
             </li>
 
-            <li>
+            <li className="hover:bg-gray-600/50">
               <a>Item 3</a>
             </li>
           </ul>
