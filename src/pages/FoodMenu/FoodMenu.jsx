@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import menuSectionCoverImg from "../../../src/assets/menu/banner3.jpg";
 import dessertSectionCoverImg from "../../../src/assets/menu/dessert.jpg";
 import pizzaSectionCoverImg from "../../../src/assets/menu/pizza-bg.jpg";
 import saladSectionCoverImg from "../../../src/assets/menu/salad-bg.jpg";
 import soupSectionCoverImg from "../../../src/assets/menu/soup-bg.jpg";
+import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useMenuFetch from "../../hooks/useMenuFetch";
 import MenuItem from "../../pages/Shared/MenuItem/MenuItem";
@@ -36,7 +38,9 @@ const FoodMenu = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="btn btn-outline">Order Your Favorite Food</button>
+          <Link to="/order/offered">
+            <PrimaryButton>Order Your Favorite Food</PrimaryButton>
+          </Link>
         </div>
       </div>
 
@@ -51,7 +55,9 @@ const FoodMenu = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="btn btn-outline">Order Your Favorite Food</button>
+          <Link to="/order/dessert">
+            <PrimaryButton>Order Your Favorite Food</PrimaryButton>
+          </Link>
         </div>
       </div>
 
@@ -66,7 +72,9 @@ const FoodMenu = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="btn btn-outline">Order Your Favorite Food</button>
+          <Link to="/order/pizza">
+            <PrimaryButton>Order Your Favorite Food</PrimaryButton>
+          </Link>
         </div>
       </div>
 
@@ -81,7 +89,9 @@ const FoodMenu = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="btn btn-outline">Order Your Favorite Food</button>
+          <Link to="/order/salad">
+            <PrimaryButton>Order Your Favorite Food</PrimaryButton>
+          </Link>
         </div>
       </div>
 
@@ -96,7 +106,9 @@ const FoodMenu = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="btn btn-outline">Order Your Favorite Food</button>
+          <Link to="/order/soup">
+            <PrimaryButton>Order Your Favorite Food</PrimaryButton>
+          </Link>
         </div>
       </div>
     </div>

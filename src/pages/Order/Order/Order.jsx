@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import orderSectionImg from "../../../assets/shop/banner2.jpg";
@@ -8,7 +9,12 @@ import FoodMenuCard from "../../Shared/FoodMenuCard/FoodMenuCard";
 import "../OrderCSS/OrderCSS.css";
 
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const foodCategory = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const categoryFromRoute = useParams();
+  const indexData = foodCategory.indexOf(categoryFromRoute);
+  const initialIndex = indexData < 0 ? 0 : indexData;
+
+  const [tabIndex, setTabIndex] = useState(initialIndex);
 
   const menuData = useMenuFetch();
   const drinksMenu = menuData.filter((data) => data.category === "drinks");
