@@ -1,22 +1,27 @@
-const CoverImg = ({ img, coverTitle }) => {
-  console.log(img);
+import { Parallax } from "react-parallax";
+
+const CoverImg = ({ img, coverTitle, children }) => {
   return (
-    <div
-      className="hero md:h-[560px]"
-      style={{
-        backgroundImage: `url("${img}")`,
-      }}
-    >
-      <div className="hero-content text-center text-neutral-content bg-black px-20 py-12 bg-opacity-50 rounded">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold uppercase">{coverTitle}</h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+    <div className="mb-8">
+      <Parallax
+        blur={{ min: -15, max: 15 }}
+        bgImage={`${img}`}
+        bgImageAlt={coverTitle}
+        strength={-200}
+        bgStyle={{ objectFit: "cover" }}
+      >
+        <div className="hero h-[560px]">
+          {" "}
+          <div className="hero-content text-center text-neutral-content bg-black px-28 py-12 bg-opacity-50 rounded">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold uppercase">
+                {coverTitle}
+              </h1>
+              <p className="mb-5">{children}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </Parallax>
     </div>
   );
 };

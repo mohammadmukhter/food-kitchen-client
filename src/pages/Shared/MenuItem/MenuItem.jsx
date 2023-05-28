@@ -1,5 +1,5 @@
-const MenuItem = ({ popular }) => {
-  const { name, image, price, recipe } = popular;
+const MenuItem = ({ item }) => {
+  const { name, image, price, recipe } = item;
   return (
     <div className="flex space-x-2">
       <img
