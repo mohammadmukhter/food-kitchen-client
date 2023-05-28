@@ -1,4 +1,17 @@
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
+  const navManu = (
+    <>
+      <li className="hover:bg-gray-600/50">
+        <Link to="/">Home</Link>
+      </li>
+
+      <li className="hover:bg-gray-600/50">
+        <Link to="foodMenu">Our Menu</Link>
+      </li>
+    </>
+  );
   return (
     <div className="navbar bg-black/30 text-white fixed z-50 max-w-7xl">
       <div className="navbar-start">
@@ -23,26 +36,13 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black bg-opacity-80 text-white rounded-box w-52"
           >
-            <li className="hover:bg-gray-600/50">
-              <a>Item 1</a>
-            </li>
-
-            <li className="hover:bg-gray-600/50">
-              <a>Item 3</a>
-            </li>
+            {navManu}
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navManu}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Get started</a>
