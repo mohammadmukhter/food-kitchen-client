@@ -6,9 +6,11 @@ const NavBar = () => {
       <li className="hover:bg-gray-600/50">
         <Link to="/">Home</Link>
       </li>
-
       <li className="hover:bg-gray-600/50">
         <Link to="foodMenu">Our Menu</Link>
+      </li>
+      <li className="hover:bg-gray-600/50">
+        <Link to="order">Order</Link>
       </li>
     </>
   );
