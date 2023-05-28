@@ -24,7 +24,7 @@ const FoodMenu = () => {
       </CoverImg>
 
       {/* offered menu section */}
-      <div className="mx-28 mb-12">
+      <div className="mx-4 md:mx-28 mb-12">
         <SectionTitle
           subHeading="Don't miss"
           heading="Today's offer"
@@ -44,7 +44,7 @@ const FoodMenu = () => {
       <CoverImg img={dessertSectionCoverImg} coverTitle="DESSERTS">
         Would you like to our dessert items?
       </CoverImg>
-      <div className="mx-28 my-12">
+      <div className="mx-4 md:mx-28 my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mb-12">
           {dessertMenu.map((data) => (
             <MenuItem key={data._id} item={data}></MenuItem>
@@ -59,7 +59,7 @@ const FoodMenu = () => {
       <CoverImg img={pizzaSectionCoverImg} coverTitle="Pizza">
         Would you like to our Delicious Pizza?
       </CoverImg>
-      <div className="mx-28 my-12">
+      <div className="mx-4 md:mx-28 my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mb-12">
           {pizzaMenu.map((data) => (
             <MenuItem key={data._id} item={data}></MenuItem>
@@ -74,7 +74,7 @@ const FoodMenu = () => {
       <CoverImg img={saladSectionCoverImg} coverTitle="Salad">
         Would you like to our Tasty and unique Salads?
       </CoverImg>
-      <div className="mx-28 my-12">
+      <div className="mx-4 md:mx-28 my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mb-12">
           {saladMenu.map((data) => (
             <MenuItem key={data._id} item={data}></MenuItem>
@@ -89,7 +89,7 @@ const FoodMenu = () => {
       <CoverImg img={soupSectionCoverImg} coverTitle="soup">
         Would you like to our Tasty Soups?
       </CoverImg>
-      <div className="mx-28 my-12">
+      <div className="mx-4 md:mx-28 my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mb-12">
           {soupMenu.map((data) => (
             <MenuItem key={data._id} item={data}></MenuItem>
