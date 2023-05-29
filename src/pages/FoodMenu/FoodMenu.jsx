@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import menuSectionCoverImg from "../../../src/assets/menu/banner3.jpg";
 import dessertSectionCoverImg from "../../../src/assets/menu/dessert.jpg";
@@ -20,6 +21,9 @@ const FoodMenu = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Food Kitchen || Menu</title>
+      </Helmet>
       {/* main cover image of menu page */}
       <CoverImg img={menuSectionCoverImg} coverTitle="our menu">
         Would you like to try a dish?

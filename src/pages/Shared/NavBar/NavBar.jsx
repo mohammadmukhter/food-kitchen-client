@@ -41,13 +41,17 @@ const NavBar = () => {
             {navManu}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          Food Kitchen
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navManu}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <a className="bg-slate-300 px-6 py-2 rounded text-xl font-semibold uppercase text-orange-600 drop-shadow-xl hover:cursor-pointer hover:bg-gray-500 hover:text-white hover:border-b-2 hover:border-orange-600">
+          Order Now
+        </a>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -26,6 +27,9 @@ const Order = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Food Kitchen || Order</title>
+      </Helmet>
       <CoverImg img={orderSectionImg} coverTitle="Order Here">
         {" "}
         Would you like to try a dish?
