@@ -10,8 +10,9 @@ import "../OrderCSS/OrderCSS.css";
 
 const Order = () => {
   const foodCategory = ["salad", "pizza", "soup", "dessert", "drinks"];
-  const categoryFromRoute = useParams();
-  const indexData = foodCategory.indexOf(categoryFromRoute);
+  const { category } = useParams();
+
+  const indexData = foodCategory.indexOf(category);
   const initialIndex = indexData < 0 ? 0 : indexData;
 
   const [tabIndex, setTabIndex] = useState(initialIndex);
