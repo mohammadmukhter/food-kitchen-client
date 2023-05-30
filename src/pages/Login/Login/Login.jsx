@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   LoadCanvasTemplate,
   loadCaptchaEnginge,
   validateCaptcha,
 } from "react-simple-captcha";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../../assets/others/authentication2.png";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
+
+  const { loginHandler } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -30,7 +34,18 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log({ email, password });
+    if (email.length > 0 && password.length > 0) {
+      loginHandler(email, password)
+        .then((res) => {
+          const loggedUser = res.user;
+          navigate("/");
+          form.reset();
+          console.log(loggedUser);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      console.log("Field is required");
+    }
   };
 
   return (
@@ -42,6 +57,9 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow bg-base-100/30">
             <div className="card-body">
+              <h3 className="text-xl text-center font-medium uppercase">
+                Login Your account
+              </h3>
               <form onSubmit={formHandler}>
                 <div className="form-control">
                   <label className="label">

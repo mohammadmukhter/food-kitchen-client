@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
-  const navManu = (
+  const { user, logOutHandler } = useContext(AuthContext);
+
+  const logOut = () => {
+    logOutHandler()
+      .then(() => {
+        alert("User Deleted Successfully");
+      })
+      .catch((err) => console.log(err));
+  };
+  const navMenu = (
     <>
       <li className="hover:bg-gray-600/50">
         <Link to="/">Home</Link>
@@ -12,9 +23,26 @@ const NavBar = () => {
       <li className="hover:bg-gray-600/50">
         <Link to="/order">Order</Link>
       </li>
-      <li className="hover:bg-gray-600/50">
-        <Link to="/login">Login</Link>
-      </li>
+
+      {user ? (
+        <>
+          <li className="hover:bg-gray-600/50">
+            <button onClick={logOut} className="btn btn-outline">
+              Log Out
+            </button>
+          </li>
+        </>
+      ) : (
+        <>
+          {" "}
+          <li className="hover:bg-gray-600/50">
+            <Link to="/login">Login</Link>
+          </li>
+          <li className="hover:bg-gray-600/50">
+            <Link to="/register">Register</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -41,7 +69,7 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black bg-opacity-80 text-white rounded-box w-52"
           >
-            {navManu}
+            {navMenu}
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -49,7 +77,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navManu}</ul>
+        <ul className="menu menu-horizontal px-1">{navMenu}</ul>
       </div>
       <div className="navbar-end">
         <a className="bg-slate-300 px-6 py-2 rounded text-xl font-semibold uppercase text-orange-600 drop-shadow-xl hover:cursor-pointer hover:bg-gray-500 hover:text-white hover:border-b-2 hover:border-orange-600">

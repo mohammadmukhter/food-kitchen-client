@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import regImg from "../../../assets/others/authentication2.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
   const { registerHandler, updateUserProfileHandler } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,6 +33,7 @@ const Register = () => {
               })
               .catch((err) => console.log(err));
           }
+          navigate("/");
         })
         .catch((err) => {
           console.log(err);
@@ -47,6 +50,9 @@ const Register = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow bg-base-100/30">
             <div className="card-body">
+              <h3 className="text-xl text-center font-medium uppercase">
+                Please Register
+              </h3>
               <form onSubmit={handleSubmit(formHandler)}>
                 <div className="form-control">
                   <label className="label">
@@ -122,9 +128,9 @@ const Register = () => {
               </form>
               <div className="form-control">
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
+                  <Link to="/login" className="label-text-alt link link-hover">
+                    Already Have an account?
+                  </Link>
                 </label>
               </div>
             </div>
