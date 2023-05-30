@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import regImg from "../../../assets/others/authentication2.png";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
+  const { registerHandler, updateUserProfileHandler } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -14,7 +18,24 @@ const Register = () => {
     // const email = form.email.value;
     // const password = form.password.value;
 
-    console.log(data);
+    if (data) {
+      registerHandler(data.email, data.password)
+        .then((res) => {
+          const registeredUser = res.user;
+          console.log(registeredUser);
+          if (registeredUser) {
+            updateUserProfileHandler(data.name, data.photoUrl)
+              .then(() => {
+                console.log("user profile info updated");
+                reset();
+              })
+              .catch((err) => console.log(err));
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
