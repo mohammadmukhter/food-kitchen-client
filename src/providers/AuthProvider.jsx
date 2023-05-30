@@ -11,10 +11,9 @@ import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
+  const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const auth = getAuth(app);
 
   const registerHandler = (email, password) => {
     setLoading(true);
@@ -27,6 +26,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOutHandler = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
