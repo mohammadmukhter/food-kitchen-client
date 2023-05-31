@@ -1,7 +1,8 @@
 import React from "react";
+import { FaTrashAlt } from "react-icons/fa";
 
-const CartTable = ({ cartItems }) => {
-  console.log(cartItems);
+const CartTable = ({ cart }) => {
+  console.log(cart);
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
@@ -16,22 +17,25 @@ const CartTable = ({ cartItems }) => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <td>1</td>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle w-12 h-12">
-                  <img src="/tailwind-css-component-profile-2@56w.png" alt="" />
+          {cart.map((item, index) => (
+            <tr>
+              <td>{index + 1}</td>
+              <td>
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img src={item.image} alt="" />
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td>Zemlak, Daniel and Leannon</td>
-            <td>Purple</td>
-            <td>
-              <button className="btn btn-ghost btn-xs">details</button>
-            </td>
-          </tr>
+              </td>
+              <td>{item.name}</td>
+              <td>{item.price}</td>
+              <td>
+                <button className="btn btn-ghost btn-xs bg-red-600 text-white">
+                  <FaTrashAlt />
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

@@ -14,9 +14,9 @@ import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="drawer drawer-mobile ">
+      <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content items-center justify-center">
           <div>
             <Outlet></Outlet>
           </div>
