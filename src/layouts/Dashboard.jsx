@@ -9,8 +9,7 @@ import {
   FaShoppingCart,
   FaWallet,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import CartTable from "../pages/Dashboard/CartTable/CartTable";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -18,15 +17,8 @@ const Dashboard = () => {
       <div className="drawer drawer-mobile ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          <div className="w-full px-8">
-            <div className="flex justify-evenly h-16 items-center uppercase font-semibold">
-              <h2>Total order: 20</h2>
-              <h2>Total Price: $120</h2>
-              <button className="btn-sm bg-[#D1A054] rounded text-white">
-                pay
-              </button>
-            </div>
-            <CartTable></CartTable>
+          <div>
+            <Outlet></Outlet>
           </div>
           <label
             htmlFor="my-drawer-2"
