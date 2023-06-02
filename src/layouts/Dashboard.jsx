@@ -10,8 +10,11 @@ import {
   FaWallet,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
+import useCartFetch from "../hooks/useCartFetch";
 
 const Dashboard = () => {
+  const [cart] = useCartFetch();
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="drawer drawer-mobile">
@@ -46,8 +49,12 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/myCart">
-                <FaShoppingCart></FaShoppingCart>My Cart
+              <Link to="/dashboard/myCart" className="border border-gray-600">
+                <FaShoppingCart />
+                My Cart
+                <div className="badge badge-secondary">
+                  {cart ? cart.length : 0}
+                </div>
               </Link>
             </li>
             <li>

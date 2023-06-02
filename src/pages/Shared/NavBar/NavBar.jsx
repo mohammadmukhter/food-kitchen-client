@@ -8,10 +8,12 @@ const NavBar = () => {
   const { user, logOutHandler } = useContext(AuthContext);
   const [cart] = useCartFetch();
 
+  // console.log("navbar rendered");
+
   const logOut = () => {
     logOutHandler()
       .then(() => {
-        alert("User Deleted Successfully");
+        alert("User Log Out Successfully");
       })
       .catch((err) => console.log(err));
   };

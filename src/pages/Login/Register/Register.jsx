@@ -15,11 +15,6 @@ const Register = () => {
   } = useForm();
 
   const formHandler = (data) => {
-    // event.preventDefault();
-    // const form = event.target;
-    // const email = form.email.value;
-    // const password = form.password.value;
-
     if (data) {
       registerHandler(data.email, data.password)
         .then((res) => {
@@ -28,6 +23,21 @@ const Register = () => {
           if (registeredUser) {
             updateUserProfileHandler(data.name, data.photoUrl)
               .then(() => {
+                const userData = {
+                  name: registeredUser.displayName,
+                  email: registeredUser.email,
+                };
+                fetch("http://localhost:5000/users", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(userData),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log("User data inserted successfully");
+                  });
                 console.log("user profile info updated");
                 reset();
               })
