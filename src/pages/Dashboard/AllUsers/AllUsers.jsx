@@ -3,10 +3,12 @@ import axios from "axios";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const data = await axios.get("http://localhost:5000/users");
+    const data = await axiosSecure.get("/users");
     return data.data;
   });
   const handleMakeAdmin = async (user) => {
