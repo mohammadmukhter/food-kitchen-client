@@ -19,8 +19,10 @@ import useIsAdmin from "../hooks/useIsAdmin";
 
 const Dashboard = () => {
   const [cart] = useCartFetch();
-  const [isAdmin] = useIsAdmin();
-
+  const [isAdmin, isAdminLoading] = useIsAdmin();
+  if (isAdminLoading) {
+    return <h2>loading....</h2>;
+  }
   return (
     <div className="max-w-7xl mx-auto">
       <div className="drawer drawer-mobile">
