@@ -13,6 +13,7 @@ import CoverImg from "../Shared/CoverImg/CoverImg";
 
 const FoodMenu = () => {
   const menuData = useMenuFetch();
+
   const offeredMenu = menuData.filter((data) => data.category === "offered");
   const dessertMenu = menuData.filter((data) => data.category === "dessert");
   const pizzaMenu = menuData.filter((data) => data.category === "pizza");

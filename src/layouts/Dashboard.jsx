@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FaBook,
   FaCalendarAlt,
@@ -15,10 +15,11 @@ import {
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import useCartFetch from "../hooks/useCartFetch";
+import useIsAdmin from "../hooks/useIsAdmin";
 
 const Dashboard = () => {
   const [cart] = useCartFetch();
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin] = useIsAdmin();
 
   return (
     <div className="max-w-7xl mx-auto">
