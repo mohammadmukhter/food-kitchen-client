@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  FaBook,
   FaCalendarAlt,
   FaCalendarCheck,
   FaEnvelopeOpen,
@@ -7,6 +8,9 @@ import {
   FaHome,
   FaShoppingBag,
   FaShoppingCart,
+  FaStore,
+  FaUsers,
+  FaUtensils,
   FaWallet,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
@@ -14,6 +18,7 @@ import useCartFetch from "../hooks/useCartFetch";
 
 const Dashboard = () => {
   const [cart] = useCartFetch();
+  const [isAdmin, setIsAdmin] = useState(true);
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -33,35 +38,70 @@ const Dashboard = () => {
         <div className="drawer-side bg-[#D1A054]">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80  text-base-content">
-            <li>
-              <Link to="/dashboard">
-                <FaHome></FaHome>User Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/reservation">
-                <FaCalendarAlt></FaCalendarAlt>Reservation
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/paymentHistory">
-                <FaWallet></FaWallet>Payment History
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/myCart" className="border border-gray-600">
-                <FaShoppingCart />
-                My Cart
-                <div className="badge badge-secondary">
-                  {cart ? cart.length : 0}
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/myBooking">
-                <FaCalendarCheck></FaCalendarCheck>My Booking
-              </Link>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <Link to="/dashboard">
+                    <FaHome></FaHome>Admin Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/addItems">
+                    <FaUtensils></FaUtensils>Add Items
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/manageItems">
+                    <FaStore></FaStore>Manage Items
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/manageBookings">
+                    <FaBook></FaBook>Manage Bookings
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/allUsers">
+                    <FaUsers></FaUsers>All Users
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/dashboard">
+                    <FaHome></FaHome>User Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/reservation">
+                    <FaCalendarAlt></FaCalendarAlt>Reservation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/paymentHistory">
+                    <FaWallet></FaWallet>Payment History
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/myCart"
+                    className="border border-gray-600"
+                  >
+                    <FaShoppingCart />
+                    My Cart
+                    <div className="badge badge-secondary">
+                      {cart ? cart.length : 0}
+                    </div>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/myBooking">
+                    <FaCalendarCheck></FaCalendarCheck>My Booking
+                  </Link>
+                </li>
+              </>
+            )}
             <div className="divider"></div>
             <li>
               <Link to="/">
