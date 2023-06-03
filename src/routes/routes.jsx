@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
+import AddMenu from "../pages/Dashboard/AddMenu/AddMenu";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import FoodMenu from "../pages/FoodMenu/FoodMenu";
@@ -65,6 +66,10 @@ const routes = createBrowserRouter([
             <AllUsers></AllUsers>
           </AdminRoute>
         ),
+      },
+      {
+        path: "addItem",
+        element: <AddMenu></AddMenu>,
       },
     ],
   },

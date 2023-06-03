@@ -49,8 +49,8 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/addItems">
-                    <FaUtensils></FaUtensils>Add Items
+                  <Link to="/dashboard/addItem">
+                    <FaUtensils></FaUtensils>Add an Item
                   </Link>
                 </li>
                 <li>
