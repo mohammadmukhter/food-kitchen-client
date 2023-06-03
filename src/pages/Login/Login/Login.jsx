@@ -49,6 +49,7 @@ const Login = () => {
           .then((data) => {
             console.log("User data inserted successfully");
           });
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
