@@ -12,7 +12,7 @@ import MenuItem from "../../pages/Shared/MenuItem/MenuItem";
 import CoverImg from "../Shared/CoverImg/CoverImg";
 
 const FoodMenu = () => {
-  const menuData = useMenuFetch();
+  const [menuData] = useMenuFetch();
 
   const offeredMenu = menuData.filter((data) => data.category === "offered");
   const dessertMenu = menuData.filter((data) => data.category === "dessert");

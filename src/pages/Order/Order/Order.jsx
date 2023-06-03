@@ -18,7 +18,7 @@ const Order = () => {
 
   const [tabIndex, setTabIndex] = useState(initialIndex);
 
-  const menuData = useMenuFetch();
+  const [menuData] = useMenuFetch();
   const drinksMenu = menuData.filter((data) => data.category === "drinks");
   const dessertMenu = menuData.filter((data) => data.category === "dessert");
   const pizzaMenu = menuData.filter((data) => data.category === "pizza");

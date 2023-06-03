@@ -3,6 +3,7 @@ import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
 import AddMenu from "../pages/Dashboard/AddMenu/AddMenu";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import ManageItem from "../pages/Dashboard/ManageItem/ManageItem";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import FoodMenu from "../pages/FoodMenu/FoodMenu";
 import Home from "../pages/Home/Home/Home";
@@ -53,7 +54,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myCart",
@@ -69,7 +74,15 @@ const routes = createBrowserRouter([
       },
       {
         path: "addItem",
-        element: <AddMenu></AddMenu>,
+        element: (
+          <AdminRoute>
+            <AddMenu></AddMenu>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageItems",
+        element: <ManageItem></ManageItem>,
       },
     ],
   },
