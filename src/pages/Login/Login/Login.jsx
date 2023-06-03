@@ -12,7 +12,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const location = useLocation();
-  const { loginHandler } = useContext(AuthContext);
+  const { loginHandler, googleLoginHandler } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
@@ -28,6 +28,29 @@ const Login = () => {
     } else {
       setDisabled(true);
     }
+  };
+
+  const googleHandler = () => {
+    googleLoginHandler()
+      .then((res) => {
+        const user = res.user;
+        const userData = {
+          name: user.displayName,
+          email: user.email,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("User data inserted successfully");
+          });
+      })
+      .catch((err) => console.log(err));
   };
 
   const formHandler = (event) => {
@@ -117,6 +140,13 @@ const Login = () => {
                       Register
                     </Link>
                   </p>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <button onClick={googleHandler} className="btn btn-outline">
+                    Google LogIn
+                  </button>
                 </label>
               </div>
             </div>

@@ -13,7 +13,7 @@ import { AuthContext } from '../providers/AuthProvider';
         return data;
       },
      });
-     console.log('hello')
+     console.log('cartFetcher component rendered ')
      
      return  [cart,isLoading, error];
   }
