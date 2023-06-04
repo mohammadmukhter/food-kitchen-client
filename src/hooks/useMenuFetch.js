@@ -13,7 +13,7 @@ const useMenuFetch = ()=> {
     //     fetchFunction();
     // },[]);
 
-    const {data: menuData = [], isLoading: loading} = useQuery({
+    const {data: menuData = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['menu'],
         queryFn: async()=> {
             const fetchedData = await axios.get("http://localhost:5000/menu");
@@ -21,7 +21,7 @@ const useMenuFetch = ()=> {
         }
     })
     
-    return [menuData, loading];
+    return [menuData, loading, refetch];
 }
 
 export default useMenuFetch;

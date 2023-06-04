@@ -1,9 +1,34 @@
 import React from "react";
+import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useMenuFetch from "../../../hooks/useMenuFetch";
 
 const ManageItem = () => {
-  const [menuData] = useMenuFetch();
+  const [menuData, , refetch] = useMenuFetch();
+  const [axiosSecure] = useAxiosSecure();
+
+  const deleteHandler = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/menu/${item._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+      }
+    });
+  };
+
   return (
     <div className="w-full mx-8">
       {" "}
@@ -44,7 +69,10 @@ const ManageItem = () => {
                   </button>
                 </td>
                 <td>
-                  <button className="btn btn-ghost btn-xs bg-red-600 text-white">
+                  <button
+                    onClick={() => deleteHandler(data)}
+                    className="btn btn-ghost btn-xs bg-red-600 text-white"
+                  >
                     delete
                   </button>
                 </td>
