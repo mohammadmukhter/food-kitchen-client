@@ -28,19 +28,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "order",
-        element: (
-          <PrivateRoute>
-            <Order></Order>
-          </PrivateRoute>
-        ),
+        element: <Order></Order>,
       },
       {
         path: "order/:category",
-        element: (
-          <PrivateRoute>
-            <Order></Order>
-          </PrivateRoute>
-        ),
+        element: <Order></Order>,
       },
       {
         path: "login",

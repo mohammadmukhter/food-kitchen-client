@@ -32,7 +32,10 @@ const ManageItem = () => {
   return (
     <div className="w-full mx-8">
       {" "}
-      <SectionTitle subHeading="Explore" heading="Manage Items"></SectionTitle>
+      <SectionTitle
+        subHeading="Explore Menu"
+        heading="Manage Items"
+      ></SectionTitle>
       <h2 className="text-2xl font-bold underline my-2 uppercase">
         Items: {menuData.length}
       </h2>
@@ -62,7 +65,7 @@ const ManageItem = () => {
                 </td>
                 <td>{data.name}</td>
                 <td>{data.category}</td>
-                <td className="text-end">{data.price}</td>
+                <td className="text-end font-semibold">${data.price}</td>
                 <td>
                   <button className="btn btn-ghost btn-xs bg-orange-600 text-white">
                     update

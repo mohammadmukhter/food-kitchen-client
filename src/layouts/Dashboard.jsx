@@ -107,6 +107,7 @@ const Dashboard = () => {
                 </li>
               </>
             )}
+
             <div className="divider"></div>
             <li>
               <Link to="/">

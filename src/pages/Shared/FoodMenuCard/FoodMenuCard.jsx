@@ -1,11 +1,13 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const FoodMenuCard = ({ item }) => {
   const { user } = useContext(AuthContext);
   const { name, image, price, recipe, _id } = item;
-  const email = user.email;
+  const email = user?.email;
+  const navigate = useNavigate();
 
   const orderHandler = (data) => {
     const insertAbleData = {
@@ -17,8 +19,8 @@ const FoodMenuCard = ({ item }) => {
       email,
     };
 
-    console.log(insertAbleData);
-    if (insertAbleData) {
+    // console.log(insertAbleData);
+    if (user && user.email) {
       fetch("http://localhost:5000/carts", {
         method: "POST",
         headers: {
@@ -34,6 +36,8 @@ const FoodMenuCard = ({ item }) => {
           }
         })
         .catch((err) => console.log(err));
+    } else {
+      navigate("/login");
     }
   };
 
