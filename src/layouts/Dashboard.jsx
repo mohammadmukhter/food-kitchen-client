@@ -46,8 +46,8 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <li>
-                  <Link to="/dashboard">
-                    <FaHome></FaHome>Admin Dashboard
+                  <Link to="/dashboard/adminHome">
+                    <FaHome></FaHome>Admin Home
                   </Link>
                 </li>
                 <li>
@@ -74,8 +74,8 @@ const Dashboard = () => {
             ) : (
               <>
                 <li>
-                  <Link to="/dashboard">
-                    <FaHome></FaHome>User Dashboard
+                  <Link to="/dashboard/userHome">
+                    <FaHome></FaHome>User Home
                   </Link>
                 </li>
                 <li>

@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
 import AddMenu from "../pages/Dashboard/AddMenu/AddMenu";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import ManageItem from "../pages/Dashboard/ManageItem/ManageItem";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import FoodMenu from "../pages/FoodMenu/FoodMenu";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
@@ -52,6 +54,19 @@ const routes = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            {" "}
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
+      },
       {
         path: "myCart",
         element: <MyCart></MyCart>,

@@ -9,16 +9,16 @@ import useAxiosSecure from './useAxiosSecure';
     const {user, loading}= useContext(AuthContext);
     
     const {data: cart =[], isLoading, error, refetch } = useQuery({ 
-      queryKey: ['carts', user?.email], 
-      enabled: !loading,
+      queryKey: ['carts', user?.email],
+      enabled:!!user?.email && !!localStorage.getItem('access-token'),
+
       queryFn: async ()=>  {
         const fetchedData= await axiosSecure.get(`/carts?email=${user?.email}`);
         return fetchedData.data;
       },
     });
     console.log('cartFetcher component rendered ');
-    return  [cart,isLoading, error, refetch];
-      
+    return  [cart, isLoading, error, refetch];  
      
   }
 

@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useCartFetch from "../../../hooks/useCartFetch";
+import useIsAdmin from "../../../hooks/useIsAdmin";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
   const { user, logOutHandler } = useContext(AuthContext);
+  const [isAdmin] = useIsAdmin();
   const [cart] = useCartFetch();
 
   // console.log("navbar rendered");
@@ -29,7 +31,12 @@ const NavBar = () => {
         <Link to="/order">Order</Link>
       </li>
       <li className="hover:bg-gray-600/50">
-        <Link to="/dashboard/myCart" className="border border-gray-600">
+        <Link to={isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"}>
+          Dashboard
+        </Link>
+      </li>
+      <li className="hover:bg-gray-600/50">
+        <Link to="/dashboard/myCart">
           <FaShoppingCart />
           <div className="badge badge-secondary">{cart ? cart.length : 0}</div>
         </Link>

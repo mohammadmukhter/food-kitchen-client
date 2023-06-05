@@ -58,12 +58,11 @@ const AuthProvider = ({ children }) => {
           })
           .then((res) => {
             localStorage.setItem("access-token", res.data);
-            setLoading(false);
           });
       } else {
         localStorage.removeItem("access-token");
       }
-
+      setLoading(false);
       // console.log(currentUser);
     });
 
